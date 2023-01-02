@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{text}}</div>
+        <form action="" @submit.prevent="login">
+            <input type="email" id="email" v-model="user.username">
+            <input type="password" id="password" v-model="user.password">
+            <button type="submit" id="login">登入</button>
+        </form>
+        <div class="">
+            <button type="button" id="check" @click="checkLogin">確認是否登入</button>
+            <button type="button" id="getProducts" @click="getProductsData">取得後台產品列表</button>
+            <button type="button" id="addProducts">新增一個產品</button>
+            <button type="button" id="delProducts">刪除一個產品</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/index.js" type="module"></script>
+</body>
+</html>
