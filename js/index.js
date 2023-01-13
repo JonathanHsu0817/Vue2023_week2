@@ -18,7 +18,6 @@ const app = {
             axios.get(`${url}v2/api/${api_path}/products/all`)
             .then(res=>{
                 const data = res.data;
-                console.log(data);
             })
         },
         login(){
