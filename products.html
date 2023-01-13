@@ -51,7 +51,7 @@
                         </tr>
                         </tbody>
                     </table>
-                    <p>目前有 <span>{{ products.length }}</span> 項產品</p>
+                    <p>目前有 <span>{{ productsNum }}</span> 項產品</p>
                 </div>
                 <div class="col-md-6">
                     <h2>單一產品細節</h2>
@@ -73,8 +73,8 @@
                                 <button type="button" class="btn btn-outline-danger" @click="temp = {}">關閉</button>
                             </div>
                         </div>
-                        <template v-for="item in temp.imagesUrl">
-                            <img v-bind:src="item" alt="" class="images m-2">
+                        <template v-for="item in temp.imagesUrl" :key="item.id">
+                            <img v-bind:src="item" :alt="item.title" class="images m-2">
                         </template>
                     </template>
                     <p class="text-secondary" v-else>請選擇一個商品查看</p>

@@ -32,6 +32,7 @@ const app = {
             })
             .catch(err=>{
                 console.log(err);
+                alert("登入失敗");
             })
         },
         getToken(){
@@ -61,7 +62,6 @@ const app = {
         }
     },
     mounted(){
-        // this.getData();
     }
 }
 

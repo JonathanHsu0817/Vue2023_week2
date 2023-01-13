@@ -7,9 +7,8 @@ const app = {
     data(){
         return {
             temp:{},
-            products:[]
-
-
+            products:[],
+            productsNum:``
         }
     },
     methods:{
@@ -18,12 +17,23 @@ const app = {
             axios.defaults.headers.common['Authorization'] = token;
             // localStorage.getItem(token);//localStorage
         },
+        checkLogin(){
+            this.getToken();
+            axios.post(`${url}v2/api/user/check`)
+            .then(res=>{
+                alert("成功登入");
+            })
+            .catch(err=>{
+                console.log(err);
+                window.location.replace("./index.html");
+            })
+        },
         getProductsData(){
             this.getToken();
             axios.get(`${url}v2/api/${api_path}/admin/products/all`)
             .then(res=>{
-                console.log(res.data.products);
                 this.products = res.data.products;
+                this.productsNum = Object.keys(this.products).length;
             })
             .catch(err=>{
                 console.log(err);
@@ -31,6 +41,7 @@ const app = {
         }
     },
     mounted(){
+        this.checkLogin()
         this.getProductsData();
     }
 }
